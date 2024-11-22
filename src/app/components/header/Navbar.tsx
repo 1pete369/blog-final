@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react"
 export default function Navbar({ isMenuOpen }: { isMenuOpen: boolean }) {
   const [path, setPath] = useState<string | null>(null)
   const pathname = usePathname() // Get the current path using usePathname
-  const { handleLogout, user } = useUserContext()
+  const { user } = useUserContext()
 
   useEffect(() => {
     const pathName = pathname.split("/")[1] // Get the first segment of the path

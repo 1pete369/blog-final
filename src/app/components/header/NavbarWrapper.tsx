@@ -8,7 +8,6 @@ import {
   PopoverContent,
   PopoverTrigger
 } from "@/components/ui/popover"
-import { CircleUser, Mail } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import ToggleTheme from "../theme/Toggle-theme"

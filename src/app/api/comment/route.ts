@@ -23,7 +23,7 @@ export async function POST(req: Request) {
     // Save blog post to database
 
     return new Response(
-      JSON.stringify({ message: "Comment created successfully" , newComment}),
+      JSON.stringify({ message: "Comment created successfully" , newComment , commentAddingToBlog}),
       {
         status: 201
       }

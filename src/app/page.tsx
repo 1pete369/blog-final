@@ -1,3 +1,4 @@
+import Link from "next/link"
 import React from "react"
 
 const BlogHomepage = () => {
@@ -13,12 +14,12 @@ const BlogHomepage = () => {
             Read insightful articles, learn, and engage with our community of
             like-minded individuals.
           </p>
-          <a
+          <Link
             href="/blog"
             className="bg-myaccent-warning text-black py-3 px-8 rounded-lg text-xl font-semibold hover:bg-yellow-400 transition duration-300"
           >
             Start Reading
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -35,9 +36,9 @@ const BlogHomepage = () => {
                 Discover proven strategies to maintain focus and stay on track
                 towards your goals.
               </p>
-              <a href="/blog/1" className="text-blue-600">
+              <Link href="/blog/1" className="text-blue-600">
                 Read More
-              </a>
+              </Link>
             </div>
             <div className="blog-card border border-black dark:border-slate-200 bg-light-cardBg text-light-primaryText dark:bg-dark-cardBg dark:text-dark-primaryText shadow-lg rounded-lg p-6">
               <h3 className="text-2xl font-semibold mb-4">
@@ -47,9 +48,9 @@ const BlogHomepage = () => {
                 Change your mindset, and you'll change your life. These tips
                 will guide you on your journey.
               </p>
-              <a href="/blog/2" className="text-blue-600">
+              <Link href="/blog/2" className="text-blue-600">
                 Read More
-              </a>
+              </Link>
             </div>
             <div className="blog-card border border-black dark:border-slate-200 bg-light-cardBg text-light-primaryText dark:bg-dark-cardBg dark:text-dark-primaryText shadow-lg rounded-lg p-6">
               <h3 className="text-2xl font-semibold mb-4">
@@ -59,9 +60,9 @@ const BlogHomepage = () => {
                 Learn how small daily habits can lead to massive personal
                 transformation over time.
               </p>
-              <a href="/blog/3" className="text-blue-600">
+              <Link href="/blog/3" className="text-blue-600">
                 Read More
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -77,12 +78,12 @@ const BlogHomepage = () => {
             Login to comment on posts, ask questions, and share your thoughts
             with fellow readers.
           </p>
-          <a
+          <Link
             href="/auth/signup"
             className="bg-myaccent-warning text-black font-semibold text-xl py-3 px-8 rounded-lg hover:bg-yellow-400"
           >
             Login to Comment
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -90,35 +91,41 @@ const BlogHomepage = () => {
       <footer className=" text-white py-8 p-4">
         <div className="container mx-auto text-center">
           <div className="space-x-8 mb-4">
-            <a href="/privacy" className="text-light-link dark:text-dark-link">
+            <Link
+              href="/privacy"
+              className="text-light-link dark:text-dark-link"
+            >
               Privacy Policy
-            </a>
-            <a href="/terms" className="text-light-link dark:text-dark-link">
+            </Link>
+            <Link href="/terms" className="text-light-link dark:text-dark-link">
               Terms of Service
-            </a>
-            <a href="/contact" className="text-light-link dark:text-dark-link">
+            </Link>
+            <Link
+              href="/contact"
+              className="text-light-link dark:text-dark-link"
+            >
               Contact Us
-            </a>
+            </Link>
           </div>
           <div className="social-icons mb-4">
-            <a
+            <Link
               href="https://instagram.com"
               className="text-light-link dark:text-dark-link mx-4"
             >
               Instagram
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://twitter.com"
               className="text-light-link dark:text-dark-link mx-4"
             >
               Twitter
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://youtube.com"
               className="text-light-link dark:text-dark-link mx-4"
             >
               YouTube
-            </a>
+            </Link>
           </div>
         </div>
       </footer>

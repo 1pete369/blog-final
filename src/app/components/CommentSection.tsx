@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import React, { useEffect, useState } from "react"
-import { CommentType, FetchedComments } from "../types/Blog"
+import { CommentType } from "../types/Blog"
 import { useUserContext } from "../context/UserDataProviderContext"
 
 type CommentSectionPropsType = {

@@ -24,7 +24,8 @@ export type MainUserObject = {
 type UserContextType = {
   user: MainUserObject | null
   setError: React.Dispatch<React.SetStateAction<string | null>>
-  profileIsLoading : Boolean
+  profileIsLoading : boolean
+  error : string | null
   handleGoogleLogin: () => Promise<void>
   handleLogout: () => Promise<void>
 }
@@ -114,7 +115,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
 
 
   return (
-    <userContext.Provider value ={{ user ,profileIsLoading , handleGoogleLogin , handleLogout, setError  }}>{children}</userContext.Provider>
+    <userContext.Provider value ={{ user, error ,profileIsLoading , handleGoogleLogin , handleLogout, setError  }}>{children}</userContext.Provider>
   )
 }
 
