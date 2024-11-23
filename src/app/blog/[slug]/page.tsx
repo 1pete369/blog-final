@@ -4,11 +4,11 @@ import BlogModel from "../../models/Blog"
 import { marked } from "marked"
 import CommentSection from "@/app/components/CommentSection"
 
-type BlogPageProps = {
+type BlogPagePropsType = {
   params: { slug: string }
 }
 
-const BlogPage = async ({ params }: BlogPageProps) => {
+const BlogPage = async ({ params }: BlogPagePropsType) => {
 
   const { slug } = params
 
