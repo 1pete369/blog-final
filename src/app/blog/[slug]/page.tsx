@@ -5,12 +5,12 @@ import { marked } from "marked"
 import CommentSection from "@/app/components/CommentSection"
 
 type BlogPagePropsType = {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 const BlogPage = async ({ params }: BlogPagePropsType) => {
 
-  const { slug } = params
+  const { slug } = await params
 
   try {
     await connect()
