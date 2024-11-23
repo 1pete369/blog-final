@@ -42,12 +42,12 @@ export default function Navbar({ isMenuOpen }: { isMenuOpen: boolean }) {
           <li>
             <Link
               className={`p-2 ${path === "blogs" && "text-blue-600 underline"}`}
-              href={"/blog"}
+              href={"/blogs"}
             >
               Blogs
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link
               className={`p-2 ${
                 path === "pricing" && "text-blue-600 underline"
@@ -64,7 +64,7 @@ export default function Navbar({ isMenuOpen }: { isMenuOpen: boolean }) {
             >
               About
             </Link>
-          </li>
+          </li> */}
           {user === null && (
             <li>
               <a
@@ -100,14 +100,14 @@ export default function Navbar({ isMenuOpen }: { isMenuOpen: boolean }) {
       <li>
         <Link
           className={`block p-2 ${
-            path === "blog" && "text-blue-600 underline"
+            path === "blogs" && "text-blue-600 underline"
           }`}
-          href={"/blog"}
+          href={"/blogs"}
         >
           Blogs
         </Link>
       </li>
-      <li>
+      {/* <li>
         <Link
           className={`block p-2 ${
             path === "pricing" && "text-blue-600 underline"
@@ -126,7 +126,7 @@ export default function Navbar({ isMenuOpen }: { isMenuOpen: boolean }) {
         >
           About
         </Link>
-      </li>
+      </li> */}
       {user === null && (
         <li>
           <a

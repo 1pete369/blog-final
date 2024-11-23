@@ -24,24 +24,32 @@ const BlogList = async () => {
           {blogs.map((blog: FetchedBlog) => {
             return (
               <div
-                className="max-w-md mx-auto  bg-light-cardBg dark:bg-dark-cardBg rounded-sm shadow-md"
-                key={blog._id}
-              >
-                <div className=" text-light-primaryText dark:text-dark-primaryText text-xl rounded-md overflow-hidden">
-                  <Image
-                    src={blog.thumbnail}
-                    alt=""
-                    width={300}
-                    height={180}
-                    className="mb-2 h-[240px] w-[300px] object-cover object-top"
-                  />
-                  <div className="mb-2 px-2">
-                    <Link href={`/blog/${blog.slug}`} className="">
+                  key={blog.slug}
+                  className="blog-card border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800/10 rounded-lg overflow-hidden transition-transform transform hover:shadow-lg max-w-[300px]"
+                >
+                  {/* Image Section */}
+                  <div className="image-wrapper">
+                    <Image
+                      src={blog.thumbnail}
+                      alt={blog.slug}
+                      height={200}
+                      width={300}
+                      className="w-full h-32 object-cover"
+                    />
+                  </div>
+                  {/* Content Section */}
+                  <div className="p-6 text-center">
+                    <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100">
                       {blog.title}
+                    </h3>
+                    <Link
+                      href={`blogs/${blog.slug}`}
+                      className="text-blue-600 dark:text-blue-400 font-medium hover:underline"
+                    >
+                      Read More
                     </Link>
                   </div>
                 </div>
-              </div>
             )
           })}
         </div>

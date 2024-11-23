@@ -17,7 +17,8 @@ export type MainUserObject = {
   timings : {
     createdAt : string,
     lastLoginAt : string
-  }
+  },
+  collection : string[]
 }
 
 // userContext TYPE
@@ -38,7 +39,6 @@ const mapFirebaseUserToMainUserObjectForGoogle = async (
 
     const placeHoldForUserName = `_${crypto.randomUUID().slice(1,10)}`
     
-    
     const MainUserObject: MainUserObject = {
       uid: firebaseUser.uid,
     personalInfo : {
@@ -51,7 +51,8 @@ const mapFirebaseUserToMainUserObjectForGoogle = async (
     timings : {
       createdAt : firebaseUser.metadata.creationTime!,
       lastLoginAt : firebaseUser.metadata.lastSignInTime!,
-    }
+    },
+    collection : []
   };
   
   console.log("Main user object",MainUserObject)

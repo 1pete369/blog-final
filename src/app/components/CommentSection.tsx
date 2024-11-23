@@ -40,7 +40,7 @@ export default function CommentSection({ slug }: CommentSectionPropsType) {
     const newComment: CommentType = {
       slug,
       commentId: crypto.randomUUID(),
-      username: user?.personalInfo.username as string,
+      username: user?.personalInfo.displayName as string,
       commentText: comment,
       imageUrl: user?.personalInfo.photoURL as string,
       createdAt: new Date().toISOString()
@@ -123,7 +123,7 @@ export default function CommentSection({ slug }: CommentSectionPropsType) {
         <div className="mt-4">
           <h2>Comments</h2>
           <div className="px-10 py-4 flex flex-col gap-2">
-            {comments.length > 0 &&
+            {comments.length > 0 ?
               comments.map((comment) => {
                 return (
                   <div
@@ -152,7 +152,7 @@ export default function CommentSection({ slug }: CommentSectionPropsType) {
                     </div>
                   </div>
                 )
-              })}
+              }) : <p>No comments yet!</p>}
           </div>
         </div>
       </div>
