@@ -9,7 +9,8 @@ type BlogPageProps = {
 }
 
 const BlogPage = async ({ params }: BlogPageProps) => {
-  const { slug } =await params
+
+  const { slug } = params
 
   try {
     await connect()
