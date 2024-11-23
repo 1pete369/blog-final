@@ -14,7 +14,7 @@ export async function POST(req: Request) {
     const newComment = new Comment(comment)
     await newComment.save()
 
-    const commentAddingToBlog = await Blog.findOneAndUpdate(
+    await Blog.findOneAndUpdate(
       { slug: comment.slug },
       { $push: { comments: newComment._id } },
       { new: true }
@@ -23,7 +23,7 @@ export async function POST(req: Request) {
     // Save blog post to database
 
     return new Response(
-      JSON.stringify({ message: "Comment created successfully" , newComment , commentAddingToBlog}),
+      JSON.stringify({ message: "Comment created successfully" , newComment }),
       {
         status: 201
       }
