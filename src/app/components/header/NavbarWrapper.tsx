@@ -18,9 +18,9 @@ export default function NavbarWrapper() {
   const { handleLogout } = useUserContext()
 
   return (
-    <header className="sticky top-0 py-4 p-4 dark:bg-dark-navbarBg bg-light-navbarBg ">
+    <header className="top-0 z-40 sticky bg-light-navbarBg dark:bg-dark-navbarBg py-4 p-4">
       {/* Header left */}
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="flex justify-between items-center mx-auto container">
         <div className="flex items-center gap-4">
           <button
             className="md:hidden p-2"
@@ -41,7 +41,7 @@ export default function NavbarWrapper() {
               />
             </svg>
           </button>
-          <div className="text-2xl font-bold">My Blog</div>
+          <div className="font-bold text-2xl">My Blog</div>
           <ToggleTheme />
         </div>
         <Navbar isMenuOpen={isMenuOpen} />
@@ -53,16 +53,16 @@ export default function NavbarWrapper() {
                 alt="user"
                 width={30}
                 height={30}
-                className="rounded-full shadow-lg"
+                className="shadow-lg rounded-full"
               />
             </PopoverTrigger>
-            <PopoverContent className="mr-2 flex flex-col gap-2 bg-light-bodyBg dark:bg-dark-bodyBg">
+            <PopoverContent className="flex flex-col gap-2 bg-light-bodyBg dark:bg-dark-bodyBg mr-2">
               <p>{user.personalInfo.email}</p>
               <p>{user.personalInfo.displayName}</p>
               <div className="flex justify-between">
                 <button
                   onClick={handleLogout}
-                  className="bg-blue-600 text-white py-1.5 px-5 rounded-lg hover:bg-blue-500"
+                  className="bg-blue-600 hover:bg-blue-500 px-5 py-1.5 rounded-lg text-white"
                 >
                   Sign Out
                 </button>
@@ -70,7 +70,7 @@ export default function NavbarWrapper() {
                   process.env.NEXT_PUBLIC_ADMIN_EMAIL && (
                   <Link
                     href={"/admin/create-blog"}
-                    className="bg-emerald-600 text-white  py-1.5 px-5 rounded-lg hover:bg-emerald-600"
+                    className="bg-emerald-600 hover:bg-emerald-600 px-5 py-1.5 rounded-lg text-white"
                   >
                     Create blog
                   </Link>

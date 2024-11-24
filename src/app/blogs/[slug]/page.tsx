@@ -18,8 +18,8 @@ const BlogPage = async ({ params }: BlogPagePropsType) => {
 
     if (!blog) {
       return (
-        <div className="flex items-center justify-center min-h-screen">
-          <h1 className="text-4xl font-bold text-gray-800">Blog Not Found</h1>
+        <div className="flex justify-center items-center min-h-screen">
+          <h1 className="font-bold text-4xl text-gray-800">Blog Not Found</h1>
         </div>
       )
     }
@@ -27,17 +27,17 @@ const BlogPage = async ({ params }: BlogPagePropsType) => {
     const markdownContent = blog.content
 
     // Convert markdown content to HTML
-    const htmlContent = marked(markdownContent)
+    const htmlContent = await marked(markdownContent)
 
     return (
       <div>
-        <div className="max-w-5xl mx-auto min-h-[calc(100vh-70px)]">
-          <div className="max-w-3xl mx-auto p-6">
+        <div className="mx-auto max-w-5xl min-h-[calc(100vh-70px)]">
+          <div className="mx-auto p-6 max-w-3xl">
           <p className="text-right text-slate-700 dark:text-slate-400">Date :{new Date(blog.createdAt).toLocaleDateString()}</p>
           </div>
-          {/* <p className='py-4 px-6 max-w-3xl mx-auto'>{blog.slug}</p> */}
+          {/* <p className='mx-auto px-6 py-4 max-w-3xl'>{blog.slug}</p> */}
           <div
-            className="markdown prose dark:prose-invert py-4 px-6 max-w-3xl mx-auto"
+            className="mx-auto px-6 py-4 max-w-3xl dark:prose-invert markdown prose"
             dangerouslySetInnerHTML={{
               __html: htmlContent
             }}
@@ -49,8 +49,8 @@ const BlogPage = async ({ params }: BlogPagePropsType) => {
   } catch (error) {
     console.error("Error fetching blog:", error)
     return (
-      <div className="flex items-center justify-center h-screen">
-        <h1 className="text-4xl font-bold text-gray-800">
+      <div className="flex justify-center items-center h-screen">
+        <h1 className="font-bold text-4xl text-gray-800">
           Error fetching the blog
         </h1>
       </div>

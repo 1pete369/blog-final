@@ -47,14 +47,14 @@ const BlogHomepage = async () => {
 
         {/* Blog Preview Section */}
         <section className="blog-preview py-16 text-light-primaryText dark:text-dark-primaryText p-4">
-          <div className="container mx-auto text-center">
+          <div className="text-center">
             <h2 className="text-4xl font-bold mb-8">Latest Blog Posts</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto">
+            <div className="flex flex-wrap gap-8 justify-center">
               {latestBlogs.map((blog) => {
                 return (
                   <div
                     key={blog.slug}
-                    className="blog-card border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800/10 rounded-lg overflow-hidden transition-transform transform hover:shadow-lg max-w-[300px]"
+                    className="blog-card border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800/10 rounded-lg overflow-hidden transition-transform transform hover:shadow-lg max-w-[300px] min-w-[300px] min-h-[300px] flex flex-col"
                   >
                     {/* Image Section */}
                     <div className="image-wrapper">
@@ -68,16 +68,16 @@ const BlogHomepage = async () => {
                     </div>
                     {/* Content Section */}
                     <div className="p-6">
-                      <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100">
+                      <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">
                         {blog.title}
                       </h3>
+                    </div>
                       <Link
                         href={`blogs/${blog.slug}`}
                         className="text-blue-600 dark:text-blue-400 font-medium hover:underline"
                       >
                         Read More
                       </Link>
-                    </div>
                   </div>
                 )
               })}
