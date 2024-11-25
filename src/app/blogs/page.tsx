@@ -71,5 +71,6 @@ const BlogList = async () => {
 }
 
 export const fetchCache = "force-no-store";
+export const revalidate = 0; 
 
 export default BlogList
