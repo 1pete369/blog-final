@@ -18,7 +18,7 @@ const nextConfig = {
         pathname : '**'
       }
     ],
-   domains: ['picsum.photos'],
+   domains: ['picsum.photos','images.pexels.com'],
   },
 };
 
