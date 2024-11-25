@@ -2,7 +2,7 @@
 import connectToDatabase from "@/lib/mongodb"
 import Link from "next/link"
 import React from "react"
-import { FetchedBlog } from "./types/Blog"
+// import { FetchedBlog } from "./types/Blog"
 import Blog from "./models/Blog"
 import Image from "next/image"
 
@@ -12,9 +12,10 @@ const BlogHomepage = async () => {
   try {
     await connectToDatabase()
 
-    const latestBlogs: FetchedBlog[] | null = await Blog.find()
+    const latestBlogs = await Blog.find()
       .sort({ createdAt: -1 })
       .limit(3)
+      .lean();
 
     if (!latestBlogs) {
       return (
@@ -156,5 +157,7 @@ const BlogHomepage = async () => {
     return <div>Error Fetching Data </div>
   }
 }
+
+export const fetchCache = "force-no-store";
 
 export default BlogHomepage

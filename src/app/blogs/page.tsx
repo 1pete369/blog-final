@@ -1,13 +1,15 @@
 import connectToDatabase from "@/lib/mongodb"
 import Link from "next/link"
-import { FetchedBlog } from "../types/Blog"
+// import { FetchedBlog } from "../types/Blog"
 import Blog from "../models/Blog"
 import Image from "next/image"
 
 const BlogList = async () => {
   try {
     await connectToDatabase()
-    const blogs: FetchedBlog[] | null = await Blog.find()
+    // const blogs: FetchedBlog[] | null = await Blog.find()
+    const blogs = await Blog.find().lean();
+
     console.log("Blogs", blogs)
 
     if (!blogs) {
@@ -22,7 +24,7 @@ const BlogList = async () => {
       <div className="max-w-7xl mx-auto px-4 py-8 min-h-[calc(100vh-70px)]">
         <div className="text-3xl font-bold mb-4">All Blogs</div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto">
-          {blogs.map((blog: FetchedBlog) => {
+          {blogs.map((blog) => {
             return (
               <div
                   key={blog.slug}
@@ -67,4 +69,7 @@ const BlogList = async () => {
     )
   }
 }
+
+export const fetchCache = "force-no-store";
+
 export default BlogList
