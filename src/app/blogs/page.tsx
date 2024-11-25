@@ -8,6 +8,7 @@ const BlogList = async () => {
   try {
     await connectToDatabase()
     const blogs: FetchedBlog[] | null = await Blog.find()
+    console.log("Blogs", blogs)
 
     if (!blogs) {
       return (
