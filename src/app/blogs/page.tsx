@@ -4,6 +4,9 @@ import Link from "next/link"
 import Blog from "../models/Blog"
 import Image from "next/image"
 
+export const dynamic = 'force-dynamic'; // Ensures SSR for fresh data on every request
+
+
 const BlogList = async () => {
   try {
     await connectToDatabase()
@@ -70,7 +73,7 @@ const BlogList = async () => {
   }
 }
 
-export const fetchCache = "force-no-store";
-export const revalidate = 0; 
+// export const fetchCache = "force-no-store";
+// export const revalidate = 0; 
 
 export default BlogList

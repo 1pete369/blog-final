@@ -6,6 +6,8 @@ import { FetchedBlog } from "./types/Blog"
 import Blog from "./models/Blog"
 import Image from "next/image"
 
+export const dynamic = 'force-dynamic'; 
+
 const BlogHomepage = async () => {
 
  
@@ -157,7 +159,7 @@ const BlogHomepage = async () => {
   }
 }
 
-export const fetchCache = "force-no-store";
-export const revalidate = 0; 
+// export const fetchCache = "force-no-store";
+// export const revalidate = 0; 
 
 export default BlogHomepage
