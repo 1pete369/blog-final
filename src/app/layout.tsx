@@ -3,6 +3,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import NavbarWrapper from "./components/header/NavbarWrapper"
 import { UserProvider } from "./context/UserDataProviderContext"
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   title: {
@@ -34,6 +35,7 @@ export default function RootLayout({
             <main className=" mx-auto dark:bg-dark-bodyBg">{children}</main>
           </UserProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
