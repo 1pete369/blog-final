@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     default : "Productivity hub blog",
     template : "%s - Productivity hub blog"
   },
-  description: "A self-improvement and productivity blog."
+  description: "Discover tips on productivity, self-improvement, and lifestyle growth at Productivity Hub Blog. Boost your personal development with expert advice and actionable strategies."
 }
 
 export default function RootLayout({
