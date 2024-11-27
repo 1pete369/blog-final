@@ -5,7 +5,10 @@ import NavbarWrapper from "./components/header/NavbarWrapper"
 import { UserProvider } from "./context/UserDataProviderContext"
 
 export const metadata: Metadata = {
-  title: "My Blog App",
+  title: {
+    default : "Productivity hub blog",
+    template : "%s - Productivity hub blog"
+  },
   description: "A self-improvement and productivity blog."
 }
 

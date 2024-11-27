@@ -3,8 +3,15 @@ import Link from "next/link"
 // import { FetchedBlog } from "../types/Blog"
 import Blog from "../models/Blog"
 import Image from "next/image"
+import { Metadata } from "next"
+
+
+export const metadata : Metadata = {
+  title : "Blogs"
+}
 
 export const dynamic = 'force-dynamic'; // Ensures SSR for fresh data on every request
+
 
 
 const BlogList = async () => {

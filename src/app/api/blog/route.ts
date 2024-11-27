@@ -69,23 +69,23 @@ export async function POST(req: Request) {
     await newBlog.save();
 
     // Revalidate pages
-    const revalidationUrls = ['/blogs', '/'];
+    // const revalidationUrls = ['/blogs', '/'];
 
-    await Promise.all(
-      revalidationUrls.map(async (url) => {
-        try {
-          const response = await fetch(
-            `${process.env.NEXT_PUBLIC_APP_URL}/api/revalidate?secret=${process.env.REVALIDATE_SECRET}&path=${url}`
-          );
+    // await Promise.all(
+    //   revalidationUrls.map(async (url) => {
+    //     try {
+    //       const response = await fetch(
+    //         `${process.env.NEXT_PUBLIC_APP_URL}/api/revalidate?secret=${process.env.REVALIDATE_SECRET}&path=${url}`
+    //       );
 
-          if (!response.ok) {
-            console.error(`Failed to revalidate ${url}:`, await response.text());
-          }
-        } catch (err) {
-          console.error(`Error while revalidating ${url}:`, err);
-        }
-      })
-    );
+    //       if (!response.ok) {
+    //         console.error(`Failed to revalidate ${url}:`, await response.text());
+    //       }
+    //     } catch (err) {
+    //       console.error(`Error while revalidating ${url}:`, err);
+    //     }
+    //   })
+    // );
 
     return new Response(
       JSON.stringify({ message: 'Blog created successfully' }),
