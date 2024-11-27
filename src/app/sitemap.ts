@@ -15,7 +15,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: `${process.env.NEXT_PUBLIC_BASE_APP_URL}/blogs`,
     //   lastModified : new Date()
-    },
+    },{
+        url: `${process.env.NEXT_PUBLIC_BASE_APP_URL}/auth/signup`,
+      //   lastModified : new Date()
+      },
     ...postEntries
   ]
 }
