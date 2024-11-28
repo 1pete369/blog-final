@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    
     remotePatterns: [
       {
         protocol: 'https', // Define the protocol
@@ -20,6 +19,7 @@ const nextConfig = {
     ],
    domains: ['picsum.photos','images.pexels.com'],
   },
+  poweredByHeader : false
 };
 
 export default nextConfig;
