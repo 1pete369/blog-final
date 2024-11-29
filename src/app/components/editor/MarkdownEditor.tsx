@@ -6,6 +6,8 @@ import { marked } from "marked" // Import marked for parsing markdown
 import { BlogCreated } from "@/app/types/Blog"
 import Image from "next/image"
 import MarkdownPreviewDialog from "./MarkdownPreviewDialog"
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
+import { storage } from "@/app/firebase/config"
 
 type MarkdownEditorProps = {
   onSave: (blog: BlogCreated) => void
@@ -17,15 +19,17 @@ const MarkdownEditor: React.FC<MarkdownEditorProps> = ({ onSave }) => {
   const [thumbnail, setThumbnail] = useState<string>("")
   const [content, setContent] = useState<string>("")
   const [htmlContent, setHtmlContent] = useState<string>("")
-
+  // const [file, setFile] = useState<File | null>(null);
+  // const [imageUrl, setImageUrl] = useState<string | null>(null);
+  // const [isUploading, setIsUploading] = useState(false);
   useEffect(() => {
-    async function getMark() { 
-      // Convert markdown content to HTML when the content changes
-      const parsedContent =await marked(content)
+    async function getMark() {
+      const parsedContent = await marked(content)
       setHtmlContent(parsedContent)
     }
     getMark()
-  }, [content]) // This will run whenever content changes
+  }, [content]) 
+
 
   const handleSave = () => {
     if (title === "" || thumbnail === "" || content === "") return
@@ -84,6 +88,28 @@ const MarkdownEditor: React.FC<MarkdownEditorProps> = ({ onSave }) => {
               className="border-slate-300 bg-light-bodyBg dark:bg-dark-bodyBg shadow-sm p-3 border rounded-md focus:ring-2 focus:ring-slate-500 w-full focus:outline-none max-w-2xl"
               required
             />
+            {/* <form onSubmit={(e)=>handleSubmit(e)}>
+              <div>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={(e)=>handleFileChange(e)}
+                />
+              </div>
+              <button type="submit" disabled={isUploading}>
+                {isUploading ? "Uploading..." : "Submit"}
+              </button>
+              {imageUrl && (
+                <div>
+                  <p>Uploaded Image:</p>
+                  <img
+                    src={imageUrl}
+                    alt="Uploaded"
+                    style={{ maxWidth: "100%" }}
+                  />
+                </div>
+              )}
+            </form> */}
           </div>
         </div>
         <div className="relative flex justify-center items-center border-slate-300 bg-light-bodyBg dark:bg-dark-bodyBg shadow-sm mt-6 md:mt-0 p-3 border rounded-md w-full md:w-1/2 max-w-sm h-[250px]">
@@ -117,10 +143,10 @@ const MarkdownEditor: React.FC<MarkdownEditorProps> = ({ onSave }) => {
 
         {/* Markdown Preview */}
         <div className="mb-6 w-full md:w-1/2">
-        <div className="flex items-center gap-32 p-2">
-          <h3 className="font-semibold text-xl">Markdown Preview</h3>
-          <MarkdownPreviewDialog htmlContent={ htmlContent} />
-        </div>
+          <div className="flex items-center gap-32 p-2">
+            <h3 className="font-semibold text-xl">Markdown Preview</h3>
+            <MarkdownPreviewDialog htmlContent={htmlContent} />
+          </div>
           <div
             className="border-slate-300 bg-light-bodyBg dark:bg-dark-bodyBg shadow-sm p-4 border rounded-md w-full min-h-96 dark:prose-invert prose"
             dangerouslySetInnerHTML={{

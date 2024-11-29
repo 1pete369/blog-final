@@ -72,3 +72,9 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+img{
+  max-height: 200px;
+  margin: auto;
+  border-radius: 5px;
+}
