@@ -98,7 +98,7 @@ const BlogHomepage = async () => {
               with fellow readers.
             </p>
               <Link
-              href="/auth/signup"
+              href="/blogs"
               className="bg-myaccent-warning text-black font-semibold text-xl py-3 px-8 rounded-lg hover:bg-yellow-400"
               >
               Start Reading
