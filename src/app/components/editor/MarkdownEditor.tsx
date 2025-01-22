@@ -7,7 +7,7 @@ import { BlogCreated } from "@/app/types/Blog"
 import Image from "next/image"
 import MarkdownPreviewDialog from "./MarkdownPreviewDialog"
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
-import { storage } from "@/app/firebase/config"
+// import { storage } from "@/app/firebase/config"
 
 type MarkdownEditorProps = {
   onSave: (blog: BlogCreated) => void
@@ -22,14 +22,14 @@ const MarkdownEditor: React.FC<MarkdownEditorProps> = ({ onSave }) => {
   // const [file, setFile] = useState<File | null>(null);
   // const [imageUrl, setImageUrl] = useState<string | null>(null);
   // const [isUploading, setIsUploading] = useState(false);
+  
   useEffect(() => {
     async function getMark() {
       const parsedContent = await marked(content)
       setHtmlContent(parsedContent)
     }
     getMark()
-  }, [content]) 
-
+  }, [content])
 
   const handleSave = () => {
     if (title === "" || thumbnail === "" || content === "") return

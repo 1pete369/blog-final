@@ -41,7 +41,9 @@ export default function NavbarWrapper() {
               />
             </svg>
           </button>
-          <Link href={"/"} className="font-bold text-2xl">My Blog</Link>
+          <Link href={"/"} className="font-bold text-2xl">
+            My Blog
+          </Link>
           <ToggleTheme />
         </div>
         <Navbar isMenuOpen={isMenuOpen} />

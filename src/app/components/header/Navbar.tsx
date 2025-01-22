@@ -21,7 +21,6 @@ export default function Navbar({ isMenuOpen }: { isMenuOpen: boolean }) {
     } else {
       document.body.style.overflow = "auto" // Re-enable scrolling
     }
-    // Cleanup to reset the overflow when the component unmounts
     return () => {
       document.body.style.overflow = "auto"
     }
@@ -47,24 +46,6 @@ export default function Navbar({ isMenuOpen }: { isMenuOpen: boolean }) {
               Blogs
             </Link>
           </li>
-          {/* <li>
-            <Link
-              className={`p-2 ${
-                path === "pricing" && "text-blue-600 underline"
-              }`}
-              href={"/pricing"}
-            >
-              Pricing
-            </Link>
-          </li>
-          <li>
-            <Link
-              className={`p-2 ${path === "about" && "text-blue-600 underline"}`}
-              href={"/about"}
-            >
-              About
-            </Link>
-          </li> */}
           {user === null && (
             <li>
               <a
@@ -77,11 +58,6 @@ export default function Navbar({ isMenuOpen }: { isMenuOpen: boolean }) {
           )}
         </ul>
       </div>
-
-      {/* Mobile Hamburger Menu Button */}
-      {/* Add a button to toggle the mobile menu */}
-
-      {/* Mobile Menu */}
       {isMenuOpen && (
   <div
     className="fixed inset-0 top-16 z-50 bg-light-navbarBg dark:bg-dark-navbarBg h-screen w-full overflow-y-auto shadow-lg space-y-4"
@@ -107,26 +83,6 @@ export default function Navbar({ isMenuOpen }: { isMenuOpen: boolean }) {
           Blogs
         </Link>
       </li>
-      {/* <li>
-        <Link
-          className={`block p-2 ${
-            path === "pricing" && "text-blue-600 underline"
-          }`}
-          href={"/pricing"}
-        >
-          Pricing
-        </Link>
-      </li>
-      <li>
-        <Link
-          className={`block p-2 ${
-            path === "about" && "text-blue-600 underline"
-          }`}
-          href={"/about"}
-        >
-          About
-        </Link>
-      </li> */}
       {user === null && (
         <li>
           <a
@@ -140,7 +96,6 @@ export default function Navbar({ isMenuOpen }: { isMenuOpen: boolean }) {
     </ul>
   </div>
 )}
-
     </div>
   )
 }
