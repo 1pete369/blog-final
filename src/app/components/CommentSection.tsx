@@ -104,7 +104,7 @@ export default function CommentSection({ slug }: CommentSectionPropsType) {
           className=" mx-auto flex flex-col gap-3"
         >
           <textarea
-            className=" flex-1  max-w-sm min-w-[300px] px-5 py-2 rounded bg-light-inputBg dark:bg-dark-inputBg outline-none resize border-2"
+            className=" flex-1  max-w-sm min-w-[300px] md:max-w-md px-5 py-2 rounded bg-light-inputBg dark:bg-dark-inputBg outline-none resize border-2"
             name=""
             rows={5}
             // cols={30}
@@ -115,7 +115,7 @@ export default function CommentSection({ slug }: CommentSectionPropsType) {
           />
           <button
             type="submit"
-            className="px-4 py-2 h-10 bg-blue-600 rounded text-white"
+            className="px-4 py-2 h-10 max-w-sm w-[300px] bg-blue-600 rounded text-white"
           >
             Add comment
           </button>
